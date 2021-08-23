@@ -6,6 +6,9 @@ define("WEBSITE_TITLE", 'MY SHOP');
 define('DB_NAME', "eshop_db");
 define('DB_USER', "root");
 define('DB_PASSWORD', "");
+define('DB_TYPE', "mysql");
+define('DB_HOST', "localhost");
+
  define('THEME','eshop/');
 define('DEBUG', true);
 
