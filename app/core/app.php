@@ -11,7 +11,7 @@ Class App
 public function __construct()
 {
     $url = $this->parseURL();
-    // show($url);
+    //show($url);
 
     if(file_exists("../app/controllers/" . strtolower($url[0]) . ".php"))
     {
@@ -34,10 +34,6 @@ public function __construct()
     $this->params = (count($url) > 0) ? $url: ["home"];
     call_user_func_array([$this->controller, $this->method],$this->params);
 }
-
-
-   
-
 
 private function parseURL()
 {

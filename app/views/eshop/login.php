@@ -1,3 +1,4 @@
+ 
 <?php $this->view("header",$data); ?>
 	
 	<section id="form" style="margin-top: 5px;"><!--form-->
@@ -27,6 +28,3 @@
 	</section><!--/form-->
 	
 	<?php $this->view("footer",$data); ?>
-
-
-  

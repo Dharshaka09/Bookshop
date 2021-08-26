@@ -1,5 +1,6 @@
-<?php 
-Class Controller
+<?php
+
+Class Controller 
 {
     public function view($path,$data = [])
     {
@@ -19,4 +20,3 @@ Class Controller
     }
 }
 
-?>

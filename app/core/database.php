@@ -1,60 +1,60 @@
-<?php
+<?php 
 
-class Database
-{
-    /*this is database class */
+Class Database{
     public static $con;
     public function __construct()
     {
-        try{ 
+        try{
+ 
+            $string = DB_TYPE . ":host=".DB_HOST . ";dbname=" . DB_NAME;
+            self::$con = new PDO($string,DB_USER,DB_PASS);
 
-            $string = DB_TYPE . ":host=". DB_HOST .";dbname=" . DB_NAME;
-            self::$con = new PDO($string,DB_USER,DB_PASSWORD);
+        }catch (PDOException $e){
 
+             die($e->getMessage());
         }
-        catch (PDOExceoption $e)
-        {
-        die ($e->getMessage());
-        }
-    }    
-    public static function getInstance()
-    {
-        if(self::$con)
-        {
-             return self::$con;
+    }
+
+    public static function getInstence(){
+        if(self::$con){
+            return self::$con;
         }
         return $instance = new self();
-         
-     }
-    /*read from db */
-    public function read($query,$data = array())
-    {
+        // return self::$con;
+    }
+
+        //read function 
+    public function read($query,$data = array()){
         $stm = self::$con->prepare($query);
         $result = $stm->execute($data);
+        if($result){
+            $data = $stm->fetchAll(PDO::FETCH_OBJ);
+            if(is_array($data) && count($data) > 0){
 
-        if($result)
-        {
-        $data = $stm->fetchAll(PDO::FETCH_OBJ);
-        if(is_array($data))
-        {
-            return $data;
+                return $data;
+
+            }
         }
-        }
-        return false;
+            return false;
     }
-    /*write to db */
-    public function write($query,$data = array())
-    {
+
+
+    public function write($query,$data = array()){
         $stm = self::$con->prepare($query);
         $result = $stm->execute($data);
+        if($result){
+            
 
-        if($result)
-        {
-            return true;
+                return $data;
+
+            
         }
-        
-        return false;
+            return false;
     }
+   
 }
 
- 
+// $db = Database::getInstence();
+// $data = $db->read("describe users");
+// show($data);
+
