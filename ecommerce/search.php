@@ -11,7 +11,7 @@
 	      <!-- Main content -->
 	      <section class="content">
 	        <div class="row">
-	        	<div class="col-sm-9">
+	        	<div class="col-sm-12">
 	            <?php
 	       			
 	       			$conn = $pdo->open();
@@ -42,7 +42,7 @@
 		       									<h5><a href='product.php?product=".$row['slug']."'>".$highlighted."</a></h5>
 		       								</div>
 		       								<div class='box-footer'>
-		       									<b>&#36; ".number_format($row['price'], 2)."</b>
+		       									<b>Rs.  ".number_format($row['price'], 2)."</b>
 		       								</div>
 	       								</div>
 	       							</div>
@@ -62,9 +62,7 @@
 
 	       		?> 
 	        	</div>
-	        	<div class="col-sm-3">
-	        		<?php include 'includes/sidebar.php'; ?>
-	        	</div>
+	        	
 	        </div>
 	      </section>
 	     
